@@ -1,0 +1,102 @@
+{
+  "jolteon": {
+    "api": "https://pokeapi.co/api/v2/pokemon/jolteon",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+    "archivo": "jolteon.png"
+  },
+  "gyarados": {
+    "api": "https://pokeapi.co/api/v2/pokemon/gyarados",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+    "archivo": "gyarados.png"
+  },
+  "charizard": {
+    "api": "https://pokeapi.co/api/v2/pokemon/charizard",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+    "archivo": "charizard.png"
+  },
+  "blastoise": {
+    "api": "https://pokeapi.co/api/v2/pokemon/blastoise",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    "archivo": "blastoise.png"
+  },
+  "snorlax": {
+    "api": "https://pokeapi.co/api/v2/pokemon/snorlax",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
+    "archivo": "snorlax.png"
+  },
+  "gengar": {
+    "api": "https://pokeapi.co/api/v2/pokemon/gengar",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+    "archivo": "gengar.png"
+  },
+  "machamp": {
+    "api": "https://pokeapi.co/api/v2/pokemon/machamp",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png",
+    "archivo": "machamp.png"
+  },
+  "venusaur": {
+    "api": "https://pokeapi.co/api/v2/pokemon/venusaur",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+    "archivo": "venusaur.png"
+  },
+  "lapras": {
+    "api": "https://pokeapi.co/api/v2/pokemon/lapras",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+    "archivo": "lapras.png"
+  },
+  "alakazam": {
+    "api": "https://pokeapi.co/api/v2/pokemon/alakazam",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+    "archivo": "alakazam.png"
+  },
+  "scizor": {
+    "api": "https://pokeapi.co/api/v2/pokemon/scizor",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png",
+    "archivo": "scizor.png"
+  },
+  "golem": {
+    "api": "https://pokeapi.co/api/v2/pokemon/golem",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+    "archivo": "golem.png"
+  },
+  "dragonite": {
+    "api": "https://pokeapi.co/api/v2/pokemon/dragonite",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+    "archivo": "dragonite.png"
+  },
+  "umbreon": {
+    "api": "https://pokeapi.co/api/v2/pokemon/umbreon",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png",
+    "archivo": "umbreon.png"
+  },
+  "clefable": {
+    "api": "https://pokeapi.co/api/v2/pokemon/clefable",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+    "archivo": "clefable.png"
+  },
+  "steelix": {
+    "api": "https://pokeapi.co/api/v2/pokemon/steelix",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png",
+    "archivo": "steelix.png"
+  },
+  "arcanine": {
+    "api": "https://pokeapi.co/api/v2/pokemon/arcanine",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+    "archivo": "arcanine.png"
+  },
+  "heracross": {
+    "api": "https://pokeapi.co/api/v2/pokemon/heracross",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/214.png",
+    "archivo": "heracross.png"
+  },
+  "gardevoir": {
+    "api": "https://pokeapi.co/api/v2/pokemon/gardevoir",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png",
+    "archivo": "gardevoir.png"
+  },
+  "mamoswine": {
+    "api": "https://pokeapi.co/api/v2/pokemon/mamoswine",
+    "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/473.png",
+    "archivo": "mamoswine.png"
+  }
+}

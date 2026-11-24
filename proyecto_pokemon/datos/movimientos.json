@@ -1,0 +1,200 @@
+[
+  {
+    "id": "rayo",
+    "nombre": "Rayo",
+    "tipo": "Eléctrico",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "terremoto",
+    "nombre": "Terremoto",
+    "tipo": "Tierra",
+    "categoria": "Físico",
+    "potencia": 100,
+    "precision": 100,
+    "pp_max": 10
+  },
+  {
+    "id": "lanzallamas",
+    "nombre": "Lanzallamas",
+    "tipo": "Fuego",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "surf",
+    "nombre": "Surf",
+    "tipo": "Agua",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "energia",
+    "nombre": "Energibola",
+    "tipo": "Planta",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 10
+  },
+  {
+    "id": "hielo",
+    "nombre": "Rayo Hielo",
+    "tipo": "Hielo",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 10
+  },
+  {
+    "id": "dinamico",
+    "nombre": "Puño Dinámico",
+    "tipo": "Lucha",
+    "categoria": "Físico",
+    "potencia": 100,
+    "precision": 50,
+    "pp_max": 5
+  },
+  {
+    "id": "bomba",
+    "nombre": "Bomba Lodo",
+    "tipo": "Veneno",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 10
+  },
+  {
+    "id": "aire",
+    "nombre": "Tajo Aéreo",
+    "tipo": "Volador",
+    "categoria": "Especial",
+    "potencia": 75,
+    "precision": 95,
+    "pp_max": 15
+  },
+  {
+    "id": "psiquico",
+    "nombre": "Psíquico",
+    "tipo": "Psíquico",
+    "categoria": "Especial",
+    "potencia": 90,
+    "precision": 100,
+    "pp_max": 10
+  },
+  {
+    "id": "tijera",
+    "nombre": "Tijera X",
+    "tipo": "Bicho",
+    "categoria": "Físico",
+    "potencia": 80,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "roca",
+    "nombre": "Avalancha",
+    "tipo": "Roca",
+    "categoria": "Físico",
+    "potencia": 75,
+    "precision": 90,
+    "pp_max": 10
+  },
+  {
+    "id": "sombra",
+    "nombre": "Bola Sombra",
+    "tipo": "Fantasma",
+    "categoria": "Especial",
+    "potencia": 80,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "dragon",
+    "nombre": "Pulso Dragón",
+    "tipo": "Dragón",
+    "categoria": "Especial",
+    "potencia": 85,
+    "precision": 100,
+    "pp_max": 10
+  },
+  {
+    "id": "pulso",
+    "nombre": "Pulso Umbrío",
+    "tipo": "Siniestro",
+    "categoria": "Especial",
+    "potencia": 80,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "acero",
+    "nombre": "Cabeza de Hierro",
+    "tipo": "Acero",
+    "categoria": "Físico",
+    "potencia": 80,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "hada",
+    "nombre": "Fuerza Lunar",
+    "tipo": "Hada",
+    "categoria": "Especial",
+    "potencia": 95,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "golpe",
+    "nombre": "Golpe Cuerpo",
+    "tipo": "Normal",
+    "categoria": "Físico",
+    "potencia": 85,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "mordisco",
+    "nombre": "Mordisco",
+    "tipo": "Siniestro",
+    "categoria": "Físico",
+    "potencia": 60,
+    "precision": 100,
+    "pp_max": 25
+  },
+  {
+    "id": "garra",
+    "nombre": "Garra Dragón",
+    "tipo": "Dragón",
+    "categoria": "Físico",
+    "potencia": 80,
+    "precision": 100,
+    "pp_max": 15
+  },
+  {
+    "id": "rapido",
+    "nombre": "Ataque Rápido",
+    "tipo": "Normal",
+    "categoria": "Físico",
+    "potencia": 40,
+    "precision": 100,
+    "pp_max": 30
+  },
+  {
+    "id": "patada",
+    "nombre": "Demolición",
+    "tipo": "Lucha",
+    "categoria": "Físico",
+    "potencia": 75,
+    "precision": 100,
+    "pp_max": 15
+  }
+]

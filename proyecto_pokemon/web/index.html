@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokémon Arena · Batallas 3 vs 3</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/"><span class="pokeball" aria-hidden="true"></span>POKÉMON <b>ARENA</b></a><span class="header-note">DOS JUGADORES · UN CAMPO DE BATALLA</span></header>
+  <main>
+    <div id="error" role="alert" hidden></div>
+    <section id="seleccion">
+      <div class="intro"><span class="eyebrow">ELIGE. COMBATE. CONQUISTA.</span><h1>Tu equipo.<br><span>Tu estrategia.</span></h1><p>Veinte Pokémon. Dieciocho tipos. Selecciona tres compañeros por entrenador y juega una batalla por turnos en este navegador.</p></div>
+      <div class="draft-panel"><div class="draft-head"><div><span class="eyebrow" id="paso">PREPARACIÓN · JUGADOR 1</span><h2>Arma tu equipo</h2></div><span id="contador">0 / 3</span></div><label for="nombre">Nombre del entrenador</label><input id="nombre" maxlength="30" value="Jugador 1" autocomplete="off"><div id="elegidos" class="slots"></div><div class="draft-controls"><label class="search-label" for="buscar">Buscar Pokémon<input id="buscar" type="search" placeholder="Nombre o tipo…"></label><button id="confirmar" class="primary" disabled>Confirmar equipo</button></div></div>
+      <div class="catalog-heading"><h2>Explora el catálogo</h2><span>Selecciona una tarjeta para añadir o quitar</span></div><div id="catalogo" class="catalogo" aria-label="Pokémon disponibles"></div>
+    </section>
+    <section id="combate" hidden>
+      <div class="battle-heading"><div><span class="eyebrow">BATALLA LOCAL · 3 CONTRA 3</span><h1>Que gane la estrategia.</h1></div><button id="reiniciar" class="secondary">Nueva partida</button></div>
+      <div class="arena"><div id="lado0" class="fighter"></div><div class="versus"><span id="turno">TURNO 1</span><strong>VS</strong><span>NIVEL 50</span></div><div id="lado1" class="fighter rival"></div></div>
+      <div class="battle-bottom"><section class="command-panel"><span class="eyebrow" id="fase">TU TURNO</span><h2 id="instruccion" tabindex="-1"></h2><p id="ayuda"></p><div id="acciones"></div></section><section class="log-panel"><span class="eyebrow">EN EL CAMPO</span><h2>Registro de batalla</h2><div id="registro" role="log" aria-live="polite"></div></section></div>
+    </section>
+  </main>
+  <footer>COMPUTACIÓN CIENTÍFICA 2 <span>Simulador académico · Sin efectos secundarios de movimientos</span></footer>
+</body>
+</html>

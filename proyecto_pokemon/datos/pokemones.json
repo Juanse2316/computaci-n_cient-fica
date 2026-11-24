@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "nombre": "Jolteon",
+    "tipo_1": "Eléctrico",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 140,
+      "ataque": 65,
+      "defensa": 60,
+      "at_especial": 110,
+      "def_especial": 95,
+      "velocidad": 130
+    },
+    "movimientos": [
+      "rayo",
+      "sombra",
+      "rapido",
+      "mordisco"
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Gyarados",
+    "tipo_1": "Agua",
+    "tipo_2": "Volador",
+    "estadisticas": {
+      "hp": 170,
+      "ataque": 125,
+      "defensa": 79,
+      "at_especial": 60,
+      "def_especial": 100,
+      "velocidad": 81
+    },
+    "movimientos": [
+      "surf",
+      "terremoto",
+      "mordisco",
+      "garra"
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Charizard",
+    "tipo_1": "Fuego",
+    "tipo_2": "Volador",
+    "estadisticas": {
+      "hp": 153,
+      "ataque": 84,
+      "defensa": 78,
+      "at_especial": 129,
+      "def_especial": 85,
+      "velocidad": 100
+    },
+    "movimientos": [
+      "lanzallamas",
+      "aire",
+      "dragon",
+      "terremoto"
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Blastoise",
+    "tipo_1": "Agua",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 154,
+      "ataque": 83,
+      "defensa": 100,
+      "at_especial": 85,
+      "def_especial": 105,
+      "velocidad": 78
+    },
+    "movimientos": [
+      "surf",
+      "hielo",
+      "mordisco",
+      "terremoto"
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Snorlax",
+    "tipo_1": "Normal",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 235,
+      "ataque": 110,
+      "defensa": 65,
+      "at_especial": 65,
+      "def_especial": 110,
+      "velocidad": 30
+    },
+    "movimientos": [
+      "golpe",
+      "terremoto",
+      "mordisco",
+      "hielo"
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Gengar",
+    "tipo_1": "Fantasma",
+    "tipo_2": "Veneno",
+    "estadisticas": {
+      "hp": 135,
+      "ataque": 65,
+      "defensa": 60,
+      "at_especial": 130,
+      "def_especial": 75,
+      "velocidad": 110
+    },
+    "movimientos": [
+      "sombra",
+      "bomba",
+      "psiquico",
+      "pulso"
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Machamp",
+    "tipo_1": "Lucha",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 165,
+      "ataque": 130,
+      "defensa": 80,
+      "at_especial": 65,
+      "def_especial": 85,
+      "velocidad": 55
+    },
+    "movimientos": [
+      "dinamico",
+      "patada",
+      "roca",
+      "terremoto"
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Venusaur",
+    "tipo_1": "Planta",
+    "tipo_2": "Veneno",
+    "estadisticas": {
+      "hp": 155,
+      "ataque": 82,
+      "defensa": 83,
+      "at_especial": 100,
+      "def_especial": 100,
+      "velocidad": 80
+    },
+    "movimientos": [
+      "energia",
+      "bomba",
+      "terremoto",
+      "golpe"
+    ]
+  },
+  {
+    "id": 9,
+    "nombre": "Lapras",
+    "tipo_1": "Agua",
+    "tipo_2": "Hielo",
+    "estadisticas": {
+      "hp": 205,
+      "ataque": 85,
+      "defensa": 80,
+      "at_especial": 85,
+      "def_especial": 95,
+      "velocidad": 60
+    },
+    "movimientos": [
+      "surf",
+      "hielo",
+      "rayo",
+      "golpe"
+    ]
+  },
+  {
+    "id": 10,
+    "nombre": "Alakazam",
+    "tipo_1": "Psíquico",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 130,
+      "ataque": 50,
+      "defensa": 45,
+      "at_especial": 135,
+      "def_especial": 95,
+      "velocidad": 120
+    },
+    "movimientos": [
+      "psiquico",
+      "sombra",
+      "energia",
+      "patada"
+    ]
+  },
+  {
+    "id": 11,
+    "nombre": "Scizor",
+    "tipo_1": "Bicho",
+    "tipo_2": "Acero",
+    "estadisticas": {
+      "hp": 145,
+      "ataque": 130,
+      "defensa": 100,
+      "at_especial": 55,
+      "def_especial": 80,
+      "velocidad": 65
+    },
+    "movimientos": [
+      "tijera",
+      "acero",
+      "patada",
+      "rapido"
+    ]
+  },
+  {
+    "id": 12,
+    "nombre": "Golem",
+    "tipo_1": "Roca",
+    "tipo_2": "Tierra",
+    "estadisticas": {
+      "hp": 155,
+      "ataque": 120,
+      "defensa": 130,
+      "at_especial": 55,
+      "def_especial": 65,
+      "velocidad": 45
+    },
+    "movimientos": [
+      "roca",
+      "terremoto",
+      "golpe",
+      "patada"
+    ]
+  },
+  {
+    "id": 13,
+    "nombre": "Dragonite",
+    "tipo_1": "Dragón",
+    "tipo_2": "Volador",
+    "estadisticas": {
+      "hp": 166,
+      "ataque": 134,
+      "defensa": 95,
+      "at_especial": 100,
+      "def_especial": 100,
+      "velocidad": 80
+    },
+    "movimientos": [
+      "garra",
+      "aire",
+      "terremoto",
+      "lanzallamas"
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "Umbreon",
+    "tipo_1": "Siniestro",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 170,
+      "ataque": 65,
+      "defensa": 110,
+      "at_especial": 60,
+      "def_especial": 130,
+      "velocidad": 65
+    },
+    "movimientos": [
+      "pulso",
+      "sombra",
+      "rapido",
+      "mordisco"
+    ]
+  },
+  {
+    "id": 15,
+    "nombre": "Clefable",
+    "tipo_1": "Hada",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 170,
+      "ataque": 70,
+      "defensa": 73,
+      "at_especial": 95,
+      "def_especial": 90,
+      "velocidad": 60
+    },
+    "movimientos": [
+      "hada",
+      "psiquico",
+      "lanzallamas",
+      "golpe"
+    ]
+  },
+  {
+    "id": 16,
+    "nombre": "Steelix",
+    "tipo_1": "Acero",
+    "tipo_2": "Tierra",
+    "estadisticas": {
+      "hp": 150,
+      "ataque": 85,
+      "defensa": 200,
+      "at_especial": 55,
+      "def_especial": 65,
+      "velocidad": 30
+    },
+    "movimientos": [
+      "acero",
+      "terremoto",
+      "roca",
+      "mordisco"
+    ]
+  },
+  {
+    "id": 17,
+    "nombre": "Arcanine",
+    "tipo_1": "Fuego",
+    "tipo_2": null,
+    "estadisticas": {
+      "hp": 165,
+      "ataque": 110,
+      "defensa": 80,
+      "at_especial": 100,
+      "def_especial": 80,
+      "velocidad": 95
+    },
+    "movimientos": [
+      "lanzallamas",
+      "mordisco",
+      "golpe",
+      "rapido"
+    ]
+  },
+  {
+    "id": 18,
+    "nombre": "Heracross",
+    "tipo_1": "Bicho",
+    "tipo_2": "Lucha",
+    "estadisticas": {
+      "hp": 155,
+      "ataque": 125,
+      "defensa": 75,
+      "at_especial": 40,
+      "def_especial": 95,
+      "velocidad": 85
+    },
+    "movimientos": [
+      "tijera",
+      "patada",
+      "roca",
+      "terremoto"
+    ]
+  },
+  {
+    "id": 19,
+    "nombre": "Gardevoir",
+    "tipo_1": "Psíquico",
+    "tipo_2": "Hada",
+    "estadisticas": {
+      "hp": 143,
+      "ataque": 65,
+      "defensa": 65,
+      "at_especial": 125,
+      "def_especial": 115,
+      "velocidad": 80
+    },
+    "movimientos": [
+      "psiquico",
+      "hada",
+      "sombra",
+      "energia"
+    ]
+  },
+  {
+    "id": 20,
+    "nombre": "Mamoswine",
+    "tipo_1": "Hielo",
+    "tipo_2": "Tierra",
+    "estadisticas": {
+      "hp": 185,
+      "ataque": 130,
+      "defensa": 80,
+      "at_especial": 70,
+      "def_especial": 60,
+      "velocidad": 80
+    },
+    "movimientos": [
+      "hielo",
+      "terremoto",
+      "roca",
+      "golpe"
+    ]
+  }
+]
