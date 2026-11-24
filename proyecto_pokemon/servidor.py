@@ -14,8 +14,13 @@ WEB = Path(__file__).resolve().parent / 'web'
 class Partida:
     def __init__(self, equipos, nombres):
         catalogo = Catalogo()
-        if len(equipos) != 2 or len(nombres) != 2:
+        if not isinstance(equipos, list) or not isinstance(nombres, list) or len(equipos) != 2 or len(nombres) != 2:
             raise ValueError('Se necesitan dos jugadores')
+        if any(not isinstance(e, list) or len(e) != 3 or
+               any(type(id) is not int or id not in catalogo.pokemones for id in e) for e in equipos):
+            raise ValueError('Cada equipo debe contener tres IDs válidos')
+        if any(not isinstance(n, str) for n in nombres):
+            raise ValueError('Los nombres deben ser texto')
         jugadores = [Entrenador(str(n)[:30] or f'Jugador {i+1}', [catalogo.crear(id) for id in e])
                      for i, (n, e) in enumerate(zip(nombres, equipos))]
         self.batalla = Batalla(*jugadores)
@@ -31,6 +36,8 @@ class Partida:
             self.acciones = []
 
     def actuar(self, datos):
+        if not isinstance(datos, dict):
+            raise ValueError('La acción debe ser un objeto JSON')
         if self.batalla.verificar_ganador() is not None:
             raise ValueError('La partida terminó')
         if self.reemplazo is not None:
@@ -46,7 +53,7 @@ class Partida:
             self.batalla.validar_accion(self.batalla.jugadores[len(self.acciones)], accion)
             self.acciones.append(accion)
             if len(self.acciones) == 2:
-                self.pasos = self.batalla.procesar_turno_interactivo(*self.acciones)
+                self.pasos = self.batalla.procesar_turno(*self.acciones)
                 self.avanzar()
 
     def estado(self):
@@ -105,6 +112,8 @@ class Servidor(BaseHTTPRequestHandler):
             if not 0 < longitud <= 10000:
                 raise ValueError('Petición inválida')
             datos = json.loads(self.rfile.read(longitud))
+            if not isinstance(datos, dict):
+                raise ValueError('Se espera un objeto JSON')
             if self.path == '/api/iniciar':
                 partida = Partida(datos['equipos'], datos['nombres'])
                 anterior = datos.get('sesion')

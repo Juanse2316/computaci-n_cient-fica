@@ -5,11 +5,10 @@ from .tipos import efectividad
 
 
 class Batalla:
-    def __init__(self, jugador1, jugador2, rng=None, elegir_reemplazo=None):
+    def __init__(self, jugador1, jugador2, rng=None):
         self.jugadores = (jugador1, jugador2)
         self.turno_actual = 1
         self.rng = rng if rng is not None else random.Random()
-        self.elegir_reemplazo = elegir_reemplazo or (lambda jugador: jugador.reservas()[0])
         self.eventos = []
         self.animaciones = []
 
@@ -37,7 +36,7 @@ class Batalla:
         if self.rng.uniform(1, 100) > movimiento.precision:
             self.eventos.append(f'¡El ataque de {atacante.nombre} ha fallado!')
             return
-        critico = self.rng.random() < 1 / 16
+        critico = self.rng.random() <= 1 / 16
         daño = self.calcular_daño(atacante, movimiento, objetivo, critico, self.rng.uniform(.85, 1))
         recibido = objetivo.recibir_daño(daño)
         tipo = 1 if isinstance(movimiento, Forcejeo) else efectividad(movimiento.tipo, objetivo.tipos)
@@ -72,15 +71,6 @@ class Batalla:
         return sorted(range(2), key=lambda i: claves[i], reverse=True)
 
     def procesar_turno(self, accion_p1, accion_p2):
-        pasos = self.procesar_turno_interactivo(accion_p1, accion_p2)
-        try:
-            jugador = next(pasos)
-            while True:
-                jugador = pasos.send(self.elegir_reemplazo(jugador))
-        except StopIteration:
-            return list(self.eventos)
-
-    def procesar_turno_interactivo(self, accion_p1, accion_p2):
         """Pausa ante cada reemplazo; recibe su índice mediante send()."""
         if self.verificar_ganador() is not None:
             raise ValueError('El combate ha terminado')

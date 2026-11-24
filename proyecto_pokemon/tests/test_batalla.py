@@ -1,11 +1,21 @@
 import random
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 from pokemon.datos import Catalogo
 from pokemon.modelos import Accion, Entrenador
 from pokemon.batalla import Batalla
 from pokemon.tipos import TIPOS, TABLA, efectividad
-from pokemon.cli import elegir
+
+
+def resolver_turno(batalla, accion1, accion2):
+    """Automatiza las reservas solo en pruebas; la web las pide al jugador."""
+    pasos = batalla.procesar_turno(accion1, accion2)
+    try:
+        jugador = next(pasos)
+        while True:
+            jugador = pasos.send(jugador.reservas()[0])
+    except StopIteration:
+        return list(batalla.eventos)
 
 
 class PruebasBatalla(unittest.TestCase):
@@ -34,7 +44,7 @@ class PruebasBatalla(unittest.TestCase):
         m = self.j2.pokemon_activo.movimientos[0]
         self.b.rng = Mock()
         self.b.rng.uniform.return_value = 80
-        eventos = self.b.procesar_turno(Accion('cambiar', 2), Accion('atacar'))
+        eventos = resolver_turno(self.b, Accion('cambiar', 2), Accion('atacar'))
         self.assertIn('cambia a Gengar', eventos[0])
         self.assertTrue(any('fallado' in e for e in eventos))
         self.assertEqual(m.pp_actual, m.pp_max - 1)
@@ -42,13 +52,13 @@ class PruebasBatalla(unittest.TestCase):
 
     def test_reemplazo_inmediato_no_hereda_accion(self):
         reserva = self.j2.equipo[1]
-        self.b.procesar_turno(Accion('atacar'), Accion('atacar'))
+        resolver_turno(self.b, Accion('atacar'), Accion('atacar'))
         self.assertIs(self.j2.pokemon_activo, reserva)
         self.assertEqual(reserva.movimientos[0].pp_actual, reserva.movimientos[0].pp_max)
         self.assertEqual(self.j1.pokemon_activo.hp_actual, self.j1.pokemon_activo.hp_max)
 
     def test_ataque_al_objetivo_que_entro(self):
-        self.b.procesar_turno(Accion('atacar'), Accion('cambiar', 1))
+        resolver_turno(self.b, Accion('atacar'), Accion('cambiar', 1))
         self.assertEqual(self.j2.equipo[0].hp_actual, self.j2.equipo[0].hp_max)
         self.assertLess(self.j2.equipo[1].hp_actual, self.j2.equipo[1].hp_max)
 
@@ -69,7 +79,7 @@ class PruebasBatalla(unittest.TestCase):
 
     def test_accion_invalida_no_modifica_turno(self):
         with self.assertRaises(ValueError):
-            self.b.procesar_turno(Accion('atacar'), Accion('cambiar', 0))
+            resolver_turno(self.b, Accion('atacar'), Accion('cambiar', 0))
         self.assertEqual(self.j1.pokemon_activo.movimientos[0].pp_actual, 15)
         self.assertEqual(self.b.turno_actual, 1)
 
@@ -82,12 +92,8 @@ class PruebasBatalla(unittest.TestCase):
             for m in p.movimientos:
                 while m.es_valido():
                     m.consumir_pp()
-        self.b.procesar_turno(Accion('forcejeo'), Accion('forcejeo'))
+        resolver_turno(self.b, Accion('forcejeo'), Accion('forcejeo'))
         self.assertEqual(self.b.verificar_ganador(), 'Empate')
-
-    def test_entrada_erronea_se_recupera(self):
-        with patch('builtins.input', side_effect=['abc', '0', '9', '2']), patch('builtins.print'):
-            self.assertEqual(elegir('Elige: ', [1, 2]), 2)
 
     def test_partida_completa(self):
         for _ in range(500):
@@ -97,8 +103,55 @@ class PruebasBatalla(unittest.TestCase):
             for j in self.b.jugadores:
                 indices = [i for i, m in enumerate(j.pokemon_activo.movimientos) if m.es_valido()]
                 acciones.append(Accion('atacar', indices[0]) if indices else Accion('forcejeo'))
-            self.b.procesar_turno(*acciones)
+            resolver_turno(self.b, *acciones)
         self.assertIsNotNone(self.b.verificar_ganador())
+
+    def test_dos_cambios_respetan_velocidad_y_no_consumen_pp(self):
+        eventos = resolver_turno(self.b, Accion('cambiar', 1), Accion('cambiar', 2))
+        self.assertIn('Uno cambia a Charizard', eventos[0])
+        self.assertIn('Dos cambia a Machamp', eventos[1])
+        for j in self.b.jugadores:
+            for p in j.equipo:
+                self.assertTrue(all(m.pp_actual == m.pp_max for m in p.movimientos))
+
+    def test_limite_critico_y_dispersion(self):
+        for sorteo, esperado in ((.0625, 56), (.0625001, 37)):
+            with self.subTest(sorteo=sorteo):
+                a, d = self.c.crear(3), self.c.crear(4)
+                self.b.rng = Mock()
+                self.b.rng.random.return_value = sorteo
+                self.b.rng.uniform.side_effect = [100, 1]
+                self.b.ejecutar_ataque(a, a.movimientos[0], d)
+                self.assertEqual(d.hp_max - d.hp_actual, esperado)
+                self.assertEqual(self.b.rng.uniform.call_args_list[0].args, (1, 100))
+                self.assertEqual(self.b.rng.uniform.call_args_list[1].args, (.85, 1))
+
+    def test_limite_precision(self):
+        for sorteo, acierta in ((50, True), (50.001, False)):
+            with self.subTest(sorteo=sorteo):
+                a, d = self.c.crear(7), self.c.crear(5)
+                self.b.rng = Mock()
+                self.b.rng.uniform.side_effect = [sorteo, 1]
+                self.b.rng.random.return_value = 1
+                self.b.ejecutar_ataque(a, a.movimientos[0], d)
+                self.assertEqual(d.hp_actual < d.hp_max, acierta)
+                self.assertEqual(a.movimientos[0].pp_actual, 4)
+                self.assertEqual(self.b.rng.random.call_count, int(acierta))
+
+    def test_inmunidad_en_ataque_real_consume_pp(self):
+        a, d = self.c.crear(5), self.c.crear(3)
+        self.b.ejecutar_ataque(a, a.movimientos[1], d)
+        self.assertEqual(d.hp_actual, d.hp_max)
+        self.assertEqual(a.movimientos[1].pp_actual, 9)
+        self.assertIn('No afecta a Charizard...', self.b.eventos)
+
+    def test_sin_pp_no_permite_atacar(self):
+        m = self.j1.pokemon_activo.movimientos[0]
+        while m.es_valido():
+            m.consumir_pp()
+        with self.assertRaises(ValueError):
+            resolver_turno(self.b, Accion('atacar'), Accion('atacar'))
+        self.assertEqual(self.b.turno_actual, 1)
 
 
 if __name__ == '__main__':

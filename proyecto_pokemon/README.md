@@ -1,6 +1,6 @@
 # Simulador de batallas Pokémon
 
-Proyecto de Computación Científica 2: dos jugadores comparten una terminal y combaten con equipos de tres Pokémon. Implementación en Python 3.10 o posterior, sin dependencias externas.
+Proyecto de Computación Científica 2: dos jugadores comparten un navegador y combaten con equipos de tres Pokémon. Implementación en Python 3.10 o posterior, sin dependencias externas.
 
 ## Ejecutar
 
@@ -12,30 +12,21 @@ python servidor.py
 
 Abre **http://127.0.0.1:8000** en tu navegador. Selecciona tres Pokémon por jugador y confirma cada equipo. La pantalla de batalla muestra vida, PP, ataques, reservas y el registro del turno. Los dos jugadores eligen sus acciones secuencialmente en el mismo navegador. Si un Pokémon cae, la web solicita un reemplazo antes de continuar.
 
-La interfaz está en `web/index.html`, `web/style.css` y `web/app.js`. JavaScript conecta los botones con `servidor.py`; todas las reglas se ejecutan en el mismo motor Python de la terminal. No necesita instalar paquetes ni conexión a internet. El servidor solo escucha en el equipo local; las partidas se guardan en memoria. Recargar la página inicia una nueva selección. Para otro puerto usa `python servidor.py --puerto 8080`. Detén el servidor con Ctrl+C.
+La interfaz está en `web/index.html`, `web/style.css` y `web/app.js`. JavaScript conecta los botones con `servidor.py`; todas las reglas se ejecutan en el motor Python. No necesita instalar paquetes ni conexión a internet. El servidor solo escucha en el equipo local; las partidas se guardan en memoria. Recargar la página inicia una nueva selección. Para otro puerto usa `python servidor.py --puerto 8080`. Detén el servidor con Ctrl+C.
 
-### Interfaz de terminal
+### Imágenes
 
 Las ilustraciones de los 20 Pokémon se obtienen de `sprites.other.official-artwork.front_default` de [PokéAPI](https://pokeapi.co/docs/v2#pokemon) y se guardan en `web/imagenes/`. Aparecen en el catálogo, los equipos seleccionados, el campo de batalla y las reservas. El archivo `fuentes.json` registra la URL original de cada imagen. Para recuperar imágenes faltantes ejecuta `python descargar_imagenes.py` con internet; las imágenes ya descargadas se reutilizan. El juego funciona sin conexión una vez descargadas. Pokémon y sus ilustraciones pertenecen a sus respectivos titulares; se usan aquí como material de un proyecto académico.
-
-Desde PowerShell, en esta carpeta:
-
-```powershell
-python main.py
-python main.py --semilla 42 --privado
-```
-
-Selecciona tres IDs diferentes por jugador; el primer Pokémon queda activo. Ambos jugadores pueden escoger la misma especie, pero sus HP y PP son independientes. Cada turno permite atacar o cambiar a una reserva viva. Escribe `q` en cualquier selección numérica o pulsa Ctrl+C para salir. `--privado` separa las elecciones con líneas vacías; el historial de la terminal sigue siendo accesible.
 
 ## Organización y POO
 
 - `pokemon/modelos.py`: abstracción `Movimiento`, herencia física/especial y selección polimórfica de estadísticas; `Pokemon`, `Entrenador` y acciones. HP y PP se modifican mediante métodos y se consultan mediante propiedades.
-- `pokemon/batalla.py`: prioridad, azar, daño, reemplazos y victoria. El generador aleatorio y la selección de reemplazo son inyectables para probar el motor sin terminal.
+- `pokemon/batalla.py`: prioridad, azar, daño, reemplazos y victoria. El generador aleatorio es inyectable; procesar_turno pausa con yield y recibe la reserva elegida con send. No hay un reemplazo automático en el juego.
 - `pokemon/tipos.py`: matriz completa de 18 × 18 y multiplicación para defensores de doble tipo.
 - `pokemon/datos.py` y `datos/*.json`: carga validada de 20 Pokémon y 22 movimientos, con instancias independientes en cada equipo.
-- `pokemon/cli.py`: entradas, selección de equipos, barras de HP y PP disponibles.
+- `servidor.py` y `web/`: selección de equipos, acciones, reemplazos, barras de HP y PP disponibles.
 - `tests/test_batalla.py`: ejemplos del enunciado y casos de integración.
-- `docs/uml.md`: diagrama de clases.
+- `docs/`: documentación local opcional, excluida del repositorio y del seguimiento de Git.
 
 ## Modelo matemático
 
@@ -66,4 +57,4 @@ python -m unittest discover -s tests -v
 
 Se comprueban los cuatro ejemplos, doble resistencia e inmunidad, velocidad y desempates, cambios, consumo de PP, cancelación de acciones tras debilitamiento, independencia de datos, entradas incorrectas, empate por retroceso y una partida completa automatizada.
 
-Requisito de referencia: `proyecto final.md`, suministrado en la carpeta superior. Enlaces de consulta incluidos en ese enunciado: [Pokémon Database](https://pokemondb.net/pokedex/dragonite) y [Terremoto](https://pokemondb.net/move/earthquake).
+Requisito de referencia: `PROYECTO FINAL - SIMULADOR DE BATALLAS POKEMON.pdf`, suministrado en la carpeta superior. La documentación de revisión y el UML se conservan solo localmente en `docs/`; no se incluyen al clonar el repositorio. El PDF exige una interfaz CLI (10 % de la evaluación); por solicitud del usuario esta entrega usa exclusivamente web, por lo que ese requisito no se cumple literalmente. Enlaces de consulta incluidos en ese enunciado: [Pokémon Database](https://pokemondb.net/pokedex/dragonite) y [Terremoto](https://pokemondb.net/move/earthquake).

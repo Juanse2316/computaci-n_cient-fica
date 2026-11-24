@@ -35,14 +35,14 @@ class MovimientoFisico(Movimiento):
     categoria = 'Físico'
 
     def estadisticas(self, atacante, objetivo):
-        return atacante.ataque, objetivo.defensa
+        return atacante.obtener_estadistica('ataque'), objetivo.obtener_estadistica('defensa')
 
 
 class MovimientoEspecial(Movimiento):
     categoria = 'Especial'
 
     def estadisticas(self, atacante, objetivo):
-        return atacante.at_especial, objetivo.def_especial
+        return atacante.obtener_estadistica('at_especial'), objetivo.obtener_estadistica('def_especial')
 
 
 class Forcejeo(MovimientoFisico):
